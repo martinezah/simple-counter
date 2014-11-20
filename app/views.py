@@ -18,9 +18,9 @@ def index(request, id):
         response = counter.value
     if request.method == 'POST':
         counter = Counter.objects.get(id=id)
+        response = counter.value
         counter.value += counter.step
         counter.save()
-        response = counter.value
     if request.method == 'DELETE':
         counter = Counter.objects.get(id=id)
         counter.delete()
